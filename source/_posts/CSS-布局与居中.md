@@ -77,7 +77,7 @@ h2{
     position: relative;
 }
 .a{
-    heihght: 1000px;
+    height: 100px;
     margin-top: -50px;    
     position: absolute;
     top: 50%;
