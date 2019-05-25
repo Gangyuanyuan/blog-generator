@@ -1,11 +1,11 @@
 ---
 title: JavaScript 数据类型
 date: 2019-05-23 10:18:09
-tags: 数据类型
+tags: JS
 categories: 前端探索
 ---
 
-### 数据类型
+## 数据类型
 1. JavaScript 语言的每一个值，都属于某一种数据类型。 JavaScript 共有**七种**数据类型：
 >+ **数值**（number）：包括整数和小数（比如`1`和`3.14`）
 >+ **字符串**（string）：即文本（比如`Hello World`）
@@ -34,7 +34,7 @@ function f() {}  // "function"
 typeof null // "object"
 ```
 
-### null 和 undefined
+## null 和 undefined
 `null`与`undefined`都可以表示“没有”，含义非常相似。
 1. 二者区别：
 + `null` 是一个表示“**空**”的对象，转为数值时为 0.
@@ -45,7 +45,7 @@ typeof null // "object"
 + 声明一个对象 object，暂时不想给值 `var obj = null` —— null
 声明一个非对象，暂时不想给值 `var n (= undefined)` —— undefined
 
-### 布尔值
+## 布尔值
 布尔值代表“真”和“假”两个状态。
 “真”用关键字 `true` 表示，“假”用关键字 `false` 表示。
 + 下列运算符会返回布尔值：
@@ -64,7 +64,7 @@ true && true = true 、 true && false = true 、 false && false = false
 >`undefined`、`null`、`false`、`0`、`NaN`、`""` 或 `''`（空字符串）
 + 布尔值往往用于程序流程的控制。
 
-### 数值
+## 数值
 1. **整数和浮点数**
 + JavaScript 内部，所有数字都是以 64 位浮点数形式储存，整数也是。所以 `1===1.0`，它们是同一个数。
 + JavaScript 语言的底层根本没有整数，所有数字都是小数（64位浮点数）
@@ -115,7 +115,7 @@ Math.pow(2, 1024)     // Infinity
  `Infinity` 有正负之分，`Infinity` 表示正的无穷，`-Infinity` 表示负的无穷。
 `Infinity`与`NaN`比较，总是返回 `false`.
 
-### 字符串
+## 字符串
 1. 定义
 + **字符串**：放在`''`或`""`之间的 0 个或多个字符。
 `''`字符串里面可以用`""`；`""`字符串里面可以用`''`。
@@ -199,7 +199,7 @@ atob('SGVsbG8gV29ybGQh') // "Hello World!"
 ```
 + 要将非ASCII码（比如中文）字符转为Base64编码，必须中间插入一个转码环节。
 
-### 对象
+## 对象
 1. 定义
 + **对象**（object）是一组“键值对”（key-value）的集合，是一种无序的复合数据集合（哈希表）。
 + 对象是复杂类型（其他六类为简单类型），由其他简单类型组成。

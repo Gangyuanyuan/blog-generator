@@ -5,7 +5,7 @@ tags: CSS
 categories: 前端探索
 ---
 
-## 一、概论
+## 概论
 ### CSS：层叠样式表（Cascading Style Sheets）
 CSS2.1 目前是世界上支持内容最广泛的 CSS（最通用），IE 从 5.5 开始是支持 CSS2.1 的；我们现在学前段从 IE8 开始兼容，低于 IE8 就不看不管不测试；其他主流浏览器都是支持 CSS3 的。
 
@@ -15,7 +15,7 @@ CSS2.1 目前是世界上支持内容最广泛的 CSS（最通用），IE 从 5.
 + `link` 标签引入外部文件：`<link rel="stylesheet" href="./a.css">`.
 + 在 CSS 文件里再引入一个 CSS 文件：`@import url(./b.css);`.
 
-## 二、知识点 
+## 知识点 
 ### div 高度
 div 的高度由其 内部文档流元素 的高度总和决定。
 
