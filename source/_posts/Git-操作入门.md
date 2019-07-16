@@ -1,7 +1,7 @@
 ---
 title: Git 操作入门
 date: 2019-04-20 13:02:42
-tags: git
+tags: Git
 categories: 前端探索
 ---
 
