@@ -1,7 +1,7 @@
 ---
 title: 理解 JSONP
 date: 2019-08-03 06:23:28
-tags: Vue
+tags: JSONP
 categories: 前端探索
 ---
 
