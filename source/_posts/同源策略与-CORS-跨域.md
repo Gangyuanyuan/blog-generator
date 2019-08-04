@@ -10,11 +10,11 @@ categories: 前端探索
 简单来说，同源策略就是：AJAX 只能向同源网址发出 HTTP 请求，同源网址即协议、域名和端口都相同；如果发出跨域请求，则会出现报错。
 
 ## CORS 跨域
-1. CORS 定义
+### CORS 定义
 + CORS（Cross-Origin Resource Sharing）即跨源资源共享，属于浏览器技术规范，用来规避浏览器的同源策略。
 + CORS 除了支持 GET 请求外，还支持其他的 HTTP 请求（JSONP 只支持 GET 请求）。
 
-2. CORS 用法
+### CORS 用法
 在被请求方的后台（server.js）加一个响应头，允许请求方访问即可：
 ```
 response.setHeader('Access-Control-Allow-Origin', 'http://gangyuanyuan.top')
