@@ -77,5 +77,5 @@ growUp.call()
 
 通常 Controller 负责监听 View，用户操作 View（如点击按钮），Controller 从 View 中获取到数据，就会去调用 Model，Model 会与服务器交互，得到数据后返回给 Controller，Controller 得到数据后再去更新 View。
 
-![MVC](https://upload-images.jianshu.io/upload_images/13038962-16c4d9d6dd38769a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)MVC 模式同时提供了对 HTML、CSS 和 JavaScript 的完全控制。
+![MVC 图解](https://upload-images.jianshu.io/upload_images/13038962-16c4d9d6dd38769a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)MVC 模式同时提供了对 HTML、CSS 和 JavaScript 的完全控制。
 MVC 分层有助于管理复杂的应用程序，让应用程序的测试更加容易，同时也简化了分组开发。
