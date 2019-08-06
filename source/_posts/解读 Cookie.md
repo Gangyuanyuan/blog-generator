@@ -6,7 +6,7 @@ categories: 前端探索
 ---
 
 ## Cookie
-我们知道，响应头中包括 Cookie 和 Cache-Control（缓存控制），我们今天就先来解读一下 Cookie。
+我们知道，响应头中包括 Cookie 和 Cache-Control（缓存控制），下面就先来解读一下 Cookie。
 ### 设置 Cookie
 Cookie 是在响应头中设置的，格式为：`Set-Cookie: <cookie-name>=<cookie-value>`，例设置一个用户登录的 Cookie：
 ```
