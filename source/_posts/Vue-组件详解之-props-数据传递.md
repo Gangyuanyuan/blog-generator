@@ -1,5 +1,5 @@
 ---
-title: Vue 组件详解之props数据传递
+title: Vue 组件详解之 props 数据传递
 date: 2019-08-14 10:24:15
 tags: Vue
 categories: 前端探索
