@@ -118,41 +118,41 @@ var app = new Vue({
     {{date | formatDate}} <!-- 过滤器,| 后面是过滤器的名字 -->
 </div>
 <script>
-	// 实现功能：在页面中实时显示当前时间
-	// 在月份、日期、小时小于10时前面补0
-	var plusZero = function(value){
-		return value<10 ? '0'+value : value
-	}
-	var app = new Vue({
-		el: '#app',
-		data: {
-			date: new Date(),
-		},
-		// 定义过滤器
-		filters: {
-			formatDate: function(value,a,b){ // 这里的value就是需要过滤的数据
-				var date = new Date(value) // 将字符串转化为date类型
-				var year = date.getFullYear()
-				var month = plusZero(date.getMonth()+1)
-				var day = plusZero(date.getDay())
-				var hours = plusZero(date.getHours())
-				var min = plusZero(date.getMinutes())
-				var sec = plusZero(date.getSeconds())
-				return year+'--'+month+'--'+day+'  '+hours+':'+min+':'+sec+' '+a+' '+b
-			}
-		},
-		mounted: function(){
-			var _this = this // this代表Vue实例本身
-			this.timer = setInterval(function(){
-				_this.date = new Date()
-			}, 1000)
-		},
-		beforeDestroy: function(){
-			if(this.timer){
-				clearInterval(this.timer)
-			}
-		}
-	})
+    // 实现功能：在页面中实时显示当前时间
+    // 在月份、日期、小时小于10时前面补0
+    var plusZero = function(value){
+        return value<10 ? '0'+value : value
+    }
+    var app = new Vue({
+        el: '#app',
+        data: {
+            date: new Date(),
+        },
+        // 定义过滤器
+        filters: {
+            formatDate: function(value,a,b){ // 这里的value就是需要过滤的数据
+                var date = new Date(value) // 将字符串转化为date类型
+                var year = date.getFullYear()
+                var month = plusZero(date.getMonth()+1)
+                var day = plusZero(date.getDay())
+                var hours = plusZero(date.getHours())
+                var min = plusZero(date.getMinutes())
+                var sec = plusZero(date.getSeconds())
+                return year+'--'+month+'--'+day+'  '+hours+':'+min+':'+sec+' '+a+' '+b
+            }
+        },
+        mounted: function(){
+            var _this = this // this代表Vue实例本身
+            this.timer = setInterval(function(){
+                _this.date = new Date()
+            }, 1000)
+        },
+        beforeDestroy: function(){
+            if(this.timer){
+                clearInterval(this.timer)
+            }
+        }
+    })
 </script>
 ```
 效果如下图所示，第一行是直接获取的时间，第二行是经过滤器过滤后的时间，即格式化后的时间：![过滤器](https://upload-images.jianshu.io/upload_images/13038962-ff3a518c60319b82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -185,35 +185,34 @@ var app = new Vue({
 3. 常用指令实例演示：
 ```
 <style>
-	.transRed{ background: red; height: 30px; width: 100px; }
+    .transRed{ background: red; height: 30px; width: 100px; }
 </style>
 <div id="app">
-    1. v-text 指令：解析文本 <br>
-	<span v-text="apple"></span> <br>
-	2. v-html 指令：解析html <br>
-	<span v-html="banana"></span> <br>
-	3. v-bind 指令：绑定活的属性 <br>
-	<div v-bind:class="className"></div> <br>
-	4. v-on 指令：绑定事件监听器 <br>
-	<button v-on:click="count">{{countNum}}</button> <!--为按钮添加监听事件--><br>
+    v-text 指令：解析文本 <br>
+    <span v-text="apple"></span> <br>
+    v-html 指令：解析html <br>
+    <span v-html="banana"></span> <br>
+    v-bind 指令：绑定活的属性 <br>
+    <div v-bind:class="className"></div> <br>
+    v-on 指令：绑定事件监听器 <br>
+    <button v-on:click="count">{{countNum}}</button> <!--为按钮添加监听事件--><br>
 </div>
 <script>
     var app = new Vue({
         el: "#app",
         data: {
             apple: '苹果',
-			banana: '<span style="color: yellow;">香蕉</span>',
-			className: 'transRed',
-			countNum: 0
+            banana: '<span style="color: yellow;">香蕉</span>',
+            className: 'transRed',
+            countNum: 0
         },
         methods: {
-			count: function(){
-				this.countNum = this.countNum + 1
-			}
-		}
+            count: function(){
+                this.countNum = this.countNum + 1
+            }
+        }
     })
 </script>
-
 ```
 ![常用指令演示](https://upload-images.jianshu.io/upload_images/13038962-664b0efc181c3175.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 4.  Vue 中用到的所有方法都定义在 `methods` 中。

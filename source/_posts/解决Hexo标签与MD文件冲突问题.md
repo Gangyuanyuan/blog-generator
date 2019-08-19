@@ -54,7 +54,7 @@ var VARIABLE_END = '$}';
 ```
 node_modules/hexo-generator-search/templates/search.xml
 ```
-根据之前修改的 `nunjucks` 的内容，将此文件的 `{{` 和 `}}` 也更改为 `{$` 和 `$}` 即可。
+根据之前修改的 `nunjucks` 的内容，将此文件的 `{{ }}` 也分别更改为 `{$` 和 `$}` 即可。
 
 **注意**：
 如果在项目下执行 `npm install` 更新 `nunjucks` 模板时，那么之前更改的内容会被还原，需要重新对有冲突的符号进行更改。

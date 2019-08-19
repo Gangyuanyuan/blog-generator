@@ -16,45 +16,45 @@ JavaScript 的一种设计模式 一一 观察者模式，包含 `dispatchEvent`
 >+ 第三步：在父组件的 `methods` 的自定义事件中用一个参数来接受
 ```
 <div id="app">
-	您现在的银行卡余额是：{{total}} 元
-	<son-component @change="handleTotal"></son-component> <!-- change为自定义事件 -->
+    您现在的银行卡余额是：{{total}} 元
+    <son-component @change="handleTotal"></son-component> <!-- change为自定义事件 -->
 </div>
 <script>
-	var app = new Vue({
+    var app = new Vue({
         el: "#app", 
         data: {
             total: 2000
         },
         // 需求: 通过加号按钮和减号按钮来给父组件传递数据
         components: {
-        	'son-component': {
-        		template: '<div>\
-							<button @click="handleincrease">+1000</button>\
-							<button @click="handlereduce">-1000</button>\
-						</div>',
-				data: function(){
-					return {
-						count: 2000
-					}
-				},
-				methods: {
-					handleincrease: function(){
-						this.count = this.count + 1000
-						// 触发change事件，并把 this.count 传递过去
-						this.$emit('change',this.count) 
-					},
-					handlereduce: function(){
-						this.count = this.count - 1000
-						this.$emit('change',this.count)
-					}
-				},
-        	}
+            'son-component': {
+                template: '<div>\
+                            <button @click="handleincrease">+1000</button>\
+                            <button @click="handlereduce">-1000</button>\
+                        </div>',
+                data: function(){
+                    return {
+                        count: 2000
+                    }
+                },
+                methods: {
+                    handleincrease: function(){
+                        this.count = this.count + 1000
+                        // 触发change事件，并把 this.count 传递过去
+                        this.$emit('change',this.count) 
+                    },
+                    handlereduce: function(){
+                        this.count = this.count - 1000
+                        this.$emit('change',this.count)
+                    }
+                },
+            }
         },
         methods: {
-        	handleTotal: function(value){
-        		// 此处的形参 value 就是传递过来的数据 count
-        		this.total = value
-        	}
+            handleTotal: function(value){
+                // 此处的形参 value 就是传递过来的数据 count
+                this.total = value
+            }
         }
     })
 </script>
@@ -70,36 +70,36 @@ JavaScript 的一种设计模式 一一 观察者模式，包含 `dispatchEvent`
 + 在有新的 `value` 时触发 input 事件
 ```
 <div id="app">
-	您现在的银行卡余额是：{{total}} 元
-	<son-component v-model="total"></son-component>
-	v-model 其实就是绑定了 input 事件， 当触发 input 时，<br>
-	input 事件就会自动接收传递过来的参数， 并赋值给已经绑定的 total。
+    您现在的银行卡余额是：{{total}} 元
+    <son-component v-model="total"></son-component>
+    v-model 其实就是绑定了 input 事件， 当触发 input 时，<br>
+    input 事件就会自动接收传递过来的参数， 并赋值给已经绑定的 total。
 </div>
 <script>
-	var app = new Vue({
-    el: "#app", 
-    data: {
-        total: 2000
-    },
-    components: {
-    	'son-component': {
-    		template: '<div>\
-					<button @click="handleincrease">+1000</button>\
-					</div>',
-				data: function(){
-					return {
-						count: 2000
-					}
-				},
-				methods: {
-					handleincrease: function(){
-						this.count = this.count + 1000
-						this.$emit('input',this.count)
-					}
-				},
-    	}
-  	}
-  })
+    var app = new Vue({
+        el: "#app", 
+        data: {
+            total: 2000
+        },
+        components: {
+            'son-component': {
+                template: '<div>\
+                            <button @click="handleincrease">+1000</button>\
+                        </div>',
+                data: function(){
+                    return {
+                        count: 2000
+                    }
+                },
+                methods: {
+                    handleincrease: function(){
+                        this.count = this.count + 1000
+                        this.$emit('input',this.count)
+                    }
+                },
+            }
+        }
+    })
 </script>
 ```
 `this.$emit('input',this.count)` 这行代码会触发一个 `input` 事件，后面的参数就是传递给 `v­-model` 绑定的属性 `total` 的值。
@@ -112,38 +112,38 @@ JavaScript 的一种设计模式 一一 观察者模式，包含 `dispatchEvent`
 1. 非父组件之间进行通信时（如将 A 组件数据传递给 B 组件），首先需要在根组件中定义一个 `bus` 中介，然后在 A 组件中触发一个事件并将参数传递过去 ，B 组件在实例创建的时候就监听这个事件，并接收传递进来的参数。
 ```
 <div id="app">
-	<my-acomponent></my-acomponent>
-	<my-bcomponent></my-bcomponent>
+    <my-acomponent></my-acomponent>
+    <my-bcomponent></my-bcomponent>
 </div>
 <script>
-	var app = new Vue({
+    var app = new Vue({
         el: "#app", 
         data: {
             bus: new Vue()
         },
         components: {
-        	'my-acomponent': {
-        		template: '<button @click="handle">点击我向B组件传递数据</button>',
-        		data: function(){
-        			return {
-        				amessage: '我是来自组件 A 的内容'
-        			}
-        		},
-        		methods: {
-        			handle: function(){
-        				this.$root.bus.$emit('lala', this.amessage)
-        			}
-        		}
-        	},
-        	'my-bcomponent': {
-        		template: '<div></div>',
-        		created: function(){
-        			// A组件在实例创建的时候就监听事件---lala事件
-        			this.$root.bus.$on('lala', function(value){
-        				alert(value)
-        			})
-        		}
-        	}
+            'my-acomponent': {
+                template: '<button @click="handle">点击我向B组件传递数据</button>',
+                data: function(){
+                    return {
+                        amessage: '我是来自组件 A 的内容'
+                    }
+                },
+                methods: {
+                    handle: function(){
+                        this.$root.bus.$emit('lala', this.amessage)
+                    }
+                }
+            },
+            'my-bcomponent': {
+                template: '<div></div>',
+                created: function(){
+                    // A组件在实例创建的时候就监听事件---lala事件
+                    this.$root.bus.$on('lala', function(value){
+                        alert(value)
+                    })
+                }
+            }
         }
     })
 </script>
@@ -152,23 +152,23 @@ JavaScript 的一种设计模式 一一 观察者模式，包含 `dispatchEvent`
 子组件访问父组件的内容：
 ```
 <div id="app">
-	<child-component></child-component> --- {{msg}}
+    <child-component></child-component> --- {{msg}}
 </div>
 <script>
-	var app = new Vue({
+    var app = new Vue({
         el: "#app", 
         data: {
             msg: '数据未修改'
         },
         components: {
-        	'child-component': {
-        		template: '<button @click="setParentData">点击修改父组件内容</button>',
-        		methods: {
-        			setParentData: function(){
-        				this.$parent.msg = "数据已经修改了"
-        			}
-        		}
-        	}
+            'child-component': {
+                template: '<button @click="setParentData">点击修改父组件内容</button>',
+                methods: {
+                    setParentData: function(){
+                        this.$parent.msg = "数据已经修改了"
+                    }
+                }
+            }
         }
     })
 </script>
@@ -177,29 +177,29 @@ JavaScript 的一种设计模式 一一 观察者模式，包含 `dispatchEvent`
 父组件访问子组件内容，用 `this.$children` 会找到所有的子组件。Vue 提供了为子组件提供索引的方法，用 `ref` 来指定一个属性名称，即为其增加一个索引。
 ```
 <div id="app">
-	<my-acomponent ref="a"></my-acomponent>
-	<button @click="getChildData">我是父组件的按钮，我要拿到子组件内容</button> --- {{fromChild}}
+    <my-acomponent ref="a"></my-acomponent>
+    <button @click="getChildData">我是父组件的按钮，我要拿到子组件内容</button> --- {{fromChild}}
 </div>
 <script>
-	var app = new Vue({
+    var app = new Vue({
         el: "#app", 
         data: {
             fromChild: '还未拿到'
         },
         methods: {
-        	getChildData: function(){
-        		this.fromChild = this.$refs.a.amessage
-        	}
+            getChildData: function(){
+                this.fromChild = this.$refs.a.amessage
+            }
         },
         components: {
-        	'my-acomponent': {
-        		template: '<div></div>',
-        		data: function(){
-        			return {
-        				amessage: '我是来自组件 A 的内容'
-        			}
-        		}
-        	}
+            'my-acomponent': {
+                template: '<div></div>',
+                data: function(){
+                    return {
+                        amessage: '我是来自组件 A 的内容'
+                    }
+                }
+            }
         }
     })
 </script>

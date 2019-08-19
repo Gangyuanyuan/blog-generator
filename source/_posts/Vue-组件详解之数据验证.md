@@ -25,10 +25,10 @@ categories: 前端探索
 数据验证示例：
 ```
 <div id="app">
-	<type-component :a="a" :b="b" :c="c" :d="d" :f="f" :g="g"></type-component>
+    <type-component :a="a" :b="b" :c="c" :d="d" :f="f" :g="g"></type-component>
 </div>
 <script>
-	var app = new Vue({
+    var app = new Vue({
         el: "#app", 
         data: {
             a: '1',
@@ -40,43 +40,43 @@ categories: 前端探索
             g: console.log()
         },
         components: {
-        	'type-component': {
-        		props: {
-        			// 必须是数字类型
-        			a: String,
-        			// 必须是字符串或数字类型
-        			b: [String,Number],
-        			// 布尔类型，如果没有定义，默认值就是true
-        			// 参数：type 类型，required 是否必传，default 默认值
-        			c: {
-        				type: Boolean,
-        				default: true
-        			},
-        			// 数字类型，而且d在页面中必传，不传则报错
-        			d: {
-        				type: Number,
-        				required: true
-        			},
-        			// 数组或对象，默认值必须用函数来返回（页面不绑定e时取默认值）
-        			e: {
-        				type: Array,
-        				default: function(){
-        					return [666]
-        				}
-        			},
-        			// 自定义一个验证函数
-        			f: {
-        				validator: function(value){
-        					return value>10
-        				}
-        			},
-        			// g必须传函数，否则报错
-        			g: {
-        				type: Function
-        			}
-        		},
-        		template: '<div>{{a}}--{{b}}--{{c}}--{{d}}--{{e[0]}}</div>'
-        	}
+            'type-component': {
+                props: {
+                    // 必须是数字类型
+                    a: String,
+                    // 必须是字符串或数字类型
+                    b: [String,Number],
+                    // 布尔类型，如果没有定义，默认值就是true
+                    // 参数：type 类型，required 是否必传，default 默认值
+                    c: {
+                        type: Boolean,
+                        default: true
+                    },
+                    // 数字类型，而且d在页面中必传，不传则报错
+                    d: {
+                        type: Number,
+                        required: true
+                    },
+                    // 数组或对象，默认值必须用函数来返回（页面不绑定e时取默认值）
+                    e: {
+                        type: Array,
+                        default: function(){
+                            return [666]
+                        }
+                    },
+                    // 自定义一个验证函数
+                    f: {
+                        validator: function(value){
+                            return value>10
+                        }
+                    },
+                    // g必须传函数，否则报错
+                    g: {
+                        type: Function
+                    }
+                },
+                template: '<div>{{a}}--{{b}}--{{c}}--{{d}}--{{e[0]}}</div>'
+            }
         }
     })
 </script>

@@ -22,8 +22,8 @@ DOM 元素经常会动态地绑定一些 class 类名或 style 样式。
 + 某个 class 是否会渲染到页面上，是根据其布尔值来判断的。
 ```
 <style>	
-	.red { background: red; }
-	.blue { background: blue; }
+    .red { background: red; }
+    .blue { background: blue; }
 </style>
 <div id="app">
     <div v-bind:class="{divStyle: isActive, borderStyle: isBorder}"></div>
@@ -45,8 +45,8 @@ DOM 元素经常会动态地绑定一些 class 类名或 style 样式。
 + 数组中定义的 class 都会被渲染到页面上。
 ```
 <style>	
-	.active { background: black; height: 100px; width: 100px; }
-	.error { border: 10px solid red; }
+    .active { background: black; height: 100px; width: 100px; }
+    .error { border: 10px solid red; }
 </style>
 <div id="app">
     <div v-bind:class="[activeClass, errorClass]"></div>
@@ -58,15 +58,15 @@ DOM 元素经常会动态地绑定一些 class 类名或 style 样式。
             activeClass: 'active',
             errorClass: 'error'
         }
-    }
+    })
 </script>
 ```
 ### 数组语法和对象语法混用
 可以用三目运算实现对象和数组混用。数组语法和对象语法混用时，使数组的第一个成员是对象，第二个成员是数组成员（一个由布尔值决定是否出现，一个永远存在）。
 ```
 <style>	
-	.active{......}
-	.error{......}
+    .active {......}
+    .error {......}
 </style>
 <div id="app">
     <div v-bind:class="[{active:isActive}, errorClass]"></div>
@@ -89,9 +89,9 @@ DOM 元素经常会动态地绑定一些 class 类名或 style 样式。
 绑定内联样式，键代表 style 的属性值，值代表属性对应的值。
 ```
 <div id="app">
-	<div v-bind:style="{'color':color, 'fontSize':fontSize+'px'}">
-		Hello！
-	</div>
+    <div v-bind:style="{'color':color, 'fontSize':fontSize+'px'}">
+        Hello！
+    </div>
 </div>
 <script>
     var app = new Vue({
@@ -107,9 +107,9 @@ DOM 元素经常会动态地绑定一些 class 类名或 style 样式。
 应用多个样式对象时，可以使用数组语法，在实际业务中，style 的数组语法并不常用，因为往往可以写在一个对象里面，而较为常用的是计算属性。
 ```
 <div id="app">
-	<div v-bind:style="[styleA, styleB]">
-		Hello！
-	</div>
+    <div v-bind:style="[styleA, styleB]">
+        Hello！
+    </div>
 </div>
 <script>
     var app = new Vue({

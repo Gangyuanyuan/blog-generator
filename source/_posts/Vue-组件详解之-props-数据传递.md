@@ -12,17 +12,17 @@ categories: 前端探索
 ```
 在父组件里向子组件传递消息：
 <div id="app" style="border: 2px solid orange; height: 120px;">
-	<h5 style="text-align: center;">我是父组件</h5>
-	<child-component message="我是来自父组件的内容"></child-component>
+    <h5 style="text-align: center;">我是父组件</h5>
+    <child-component message="我是来自父组件的内容"></child-component>
 </div>
 <script>
-	var app = new Vue({
+    var app = new Vue({
         el: "#app", 
         components: {
-        	'child-component': {
-        		props: ['message'],
-        		template: '<div style="border: 2px solid green; height: 60px;">{{message}}</div>'
-        	}
+            'child-component': {
+                props: ['message'],
+                template: '<div style="border: 2px solid green; height: 60px;">{{message}}</div>'
+            }
         }
     })
 </script>
@@ -35,20 +35,20 @@ categories: 前端探索
 ```
 使用v-bind进行数据的动态绑定 --- 把input中的message传递给子组件：
 <div id="app" style="border: 2px solid orange; height: 120px;">
-	<input type="text" v-model="parentmsg">
-	<bind-component v-bind:message="parentmsg"></bind-component>
+    <input type="text" v-model="parentmsg">
+    <bind-component v-bind:message="parentmsg"></bind-component>
 </div>
 <script>
-	var app = new Vue({
+    var app = new Vue({
         el: "#app",
         data: {
-        	parentmsg: '今天的月亮真圆啊'
+            parentmsg: '今天的月亮真圆啊'
         },
         components: {
-        	'bind-component': {
-        		props: ['message'],
-        		template: '<div style="border: 2px solid green; height: 60px;">{{message}}</div>'
-        	}
+            'bind-component': {
+                props: ['message'],
+                template: '<div style="border: 2px solid green; height: 60px;">{{message}}</div>'
+            }
         }
     })
 </script>
@@ -57,17 +57,17 @@ categories: 前端探索
 ```
 v-bind 使用与否的区别：
 <div id="app" style="border: 2px solid orange; height: 120px;">
-	<child-component message="[3,6,9]"></child-component>
-	<child-component v-bind:message="[3,6,9]"></child-component>
+    <child-component message="[3,6,9]"></child-component>
+    <child-component v-bind:message="[3,6,9]"></child-component>
 </div>
 <script>
-	var app = new Vue({
+    var app = new Vue({
         el: "#app", 
         components: {
-        	'child-component': {
-        		props: ['message'],
+            'child-component': {
+                props: ['message'],
         		template: '<div style="border: 2px solid green; height: 60px;">{{message}}  length:{{message.length}}</div>'
-        	}
+            }
         }
     })
 </script>
@@ -86,22 +86,22 @@ v-bind 使用与否的区别：
 
 ```
 <div id="app">
-	<my-component msg="我是父组件传递的数据"></my-component>
+    <my-component msg="我是父组件传递的数据"></my-component>
 </div>
 <script>
-	var app = new Vue({
+    var app = new Vue({
         el: "#app", 
-       	components: {
-       		'my-component': {
-       			props: ['msg'],
-				template: '<div>{{count}}</div>'
-				data: function(){
-					return {
-						count: this.msg // props中的值可以通过this.xxx直接获取
-					}
-				}
-       		}
-       	}
+        components: {
+            'my-component': {
+                props: ['msg'],
+                template: '<div>{{count}}</div>'
+                data: function(){
+                    return {
+                        count: this.msg // props中的值可以通过this.xxx直接获取
+                    }
+                }
+            }
+        }
     })
 </script>
 ```
@@ -114,30 +114,30 @@ v-bind 使用与否的区别：
 例：通过 input 输入框输入的数据直接改变 div 宽度：
 ```
 <div id="app">
-	请输入宽度：<input type="text" v-model="width">
-	<width-component :width="width"></width-component>
+    请输入宽度：<input type="text" v-model="width">
+    <width-component :width="width"></width-component>
 </div>
 <script>
-	var app = new Vue({
+    var app = new Vue({
         el: "#app",
         data: {
-			width: ''
-		},
-       	components: {
-       		'width-component': {
-       			props: ['width'],
-				template: '<div :style="style"></div>',
-				computed: {
-					style: function(){
-						return {
-							width: this.width + 'px',
-							height: '30px',
-							background: 'red'
-						}
-					}	
-				}
-       		}
-       	}
+            width: ''
+        },
+        components: {
+            'width-component': {
+                props: ['width'],
+                template: '<div :style="style"></div>',
+                computed: {
+                    style: function(){
+                        return {
+                            width: this.width + 'px',
+                            height: '30px',
+                            background: 'red'
+                        }
+                    }	
+                }
+            }
+        }
     })
 </script>
 ```

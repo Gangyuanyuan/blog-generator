@@ -93,21 +93,21 @@ VUE 提供了 `v­-model` 指令， 用于在 **表单类** 的元素上双向�
 **注意**：`v-­model` 一定是绑定在 `select` 标签上。
 ```
 <div id="app">
-	单选下拉框：
-	<select v-model="selected">
-		<option value="小猫">小猫</option>
-		<option value="小狗">小狗</option>
-		<option value="小刺猬">小刺猬</option>
-	</select>
-	现在选中的是 {{selected}}
-	<br><br><br><br>
-	多选下拉框（按Ctrl键点选）：
-	<select v-model="selectedmul" multiple>
-		<option value="小猫">小猫</option>
-		<option value="小狗">小狗</option>
-		<option value="小刺猬">小刺猬</option>
-	</select>
-	现在选中的是 {{selectedmul}}
+    单选下拉框：
+    <select v-model="selected">
+        <option value="小猫">小猫</option>
+        <option value="小狗">小狗</option>
+        <option value="小刺猬">小刺猬</option>
+    </select>
+    现在选中的是 {{selected}}
+    <br><br><br><br>
+    多选下拉框（按Ctrl键点选）：
+    <select v-model="selectedmul" multiple>
+        <option value="小猫">小猫</option>
+        <option value="小狗">小狗</option>
+        <option value="小刺猬">小刺猬</option>
+    </select>
+    现在选中的是 {{selectedmul}}
 </div>
 <script>
     var app = new Vue({

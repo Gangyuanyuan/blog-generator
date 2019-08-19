@@ -35,17 +35,17 @@ computed: {
 + 我们也可以在需要时使用 `setter` 函数 ， 当手动修改计算属性的值就像修改一个普通数据那样时，就会触发 `setter` 函数，执行一些自定义的操作。例 显示全名：
 ```
 computed: {
-	fullName: {
-		get: function(){
-			return this.firstName + ' ' + this.lastName
-		},
-		set: function(newValue){
-			// 传进来的值用逗号分隔，如'Liu,Bei'
-			var names = newValue.split(',') // 分隔为数组
-			this.firstName = names[0]
-			this.lastName = names[1]
-		}
-	}
+    fullName: {
+        get: function(){
+            return this.firstName + ' ' + this.lastName
+        },
+        set: function(newValue){
+            // 传进来的值用逗号分隔，如'Liu,Bei'
+            var names = newValue.split(',') // 分隔为数组
+            this.firstName = names[0]
+            this.lastName = names[1]
+        }
+    }
 }
 ```
 
