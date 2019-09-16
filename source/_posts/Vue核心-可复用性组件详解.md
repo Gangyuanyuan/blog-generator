@@ -39,6 +39,7 @@ var app = new Vue({
 <div id="app">
     <my-component></my-component>
     <app-component></app-component>
+    <!-- 组件中间不填充内容时，可以直接写为 <my-component/>，<app-component/>形式 -->
 </div>
 ```
 渲染到页面时，组件标签会被替换成我们自定义的内容。

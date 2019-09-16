@@ -12,12 +12,17 @@ categories: 前端探索
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
 安装之后命令中的 `npm` 都用 `cnpm` 来代替。
-## Vue-cli 脚手架搭建
+## 安装 vue-cli
 + 全局安装 vue­-cli（-g --- global）
 ```
 npm install -g vue-cli
 ```
-+ 进入目录（如 vueWebpackApp），初始化项目（项目名称自定义）
+## 搭建项目
++ 进入想要创建项目的目录（如：进入 D 盘的 vueWebpackApp 文件夹）
+```
+cd d:/vueWebpackApp
+```
++ 初始化项目（项目名称自定义，均小写）
 ```
 vue init webpack my-project
 ```
@@ -26,7 +31,7 @@ vue init webpack my-project
 ? Project name vueapp          // 输入项目名称
 ? Project description demo     // 输入项目描述
 ? Author GY                    // 输入作者
-? Vue build                    // 选择构建模式，直接回车选择第一条
+? Vue build            // 选择构建模式（cmd直接回车选第一条，git按对应数字+回车
 > Runtime + Compiler: recommended for most users
   Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specific
 HTML) are ONLY allowed in .vue files - render functions are required elsewhere
@@ -58,6 +63,7 @@ Your application is running here: http://localhost:8080
 打开这个地址 `http://localhost:8080`，你会发现通过 vue-cli 脚手架工具结合 webpack 搭建的项目已经完成了。![vue-cli 搭建项目](https://upload-images.jianshu.io/upload_images/13038962-ee48ed581fb7830f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## 目录结构分析
+用编辑器打开项目，可以看到目录结构如下所示：
 + build // **项目构建**（webpack）相关代码（9个）
 ── build.js // 生产环境构建代码
 ── check-­versions.js // 检查 node&npm 等版本
