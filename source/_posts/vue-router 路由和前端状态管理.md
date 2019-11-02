@@ -5,7 +5,7 @@ tags: Vue
 categories: 前端探索
 ---
 
-## vue--router 路由基本加载
+## vue-router 路由基本加载
 路由，通俗地来讲就是输入不同的网址，加载不同的组件。
 1. 进入项目目录
 ```
@@ -13,7 +13,7 @@ cd my-project
 ```
 2. 安装
 ```
-npm install --save vue-router
+npm install -save vue-router
 ```
 3. 在文件中**引用**
 ```
@@ -40,7 +40,7 @@ new Vue({
 <router-view></router-view>
 ```
 
-## vue--router 路由的跳转
+## vue-router 路由的跳转
 ```
 <router-link to="/"></router-link>
 ```
@@ -58,7 +58,7 @@ new Vue({
 </template>
 ```
 
-## vue--router 路由参数的传递
+## vue-router 路由参数的传递
 >+ 必须在路由中加入路由的 `name` 属性
 >+ 必须在 `path` 后加 `/: + 传递的参数`
 >+ 传递参数和接收参数见下方代码
